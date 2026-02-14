@@ -1,0 +1,217 @@
+@use "../../styles/typography.scss" as typo;
+@import "../../styles/utils.scss";
+
+.issue-container {
+  position: relative;
+  display: flex;
+  flex-direction: row-reverse;
+  & .issue-body {
+    width: 100%;
+    padding-inline: 16px;
+    padding-block: 8px;
+    background-color: var(--color-gray-10);
+    border-radius: 24px 24px 24px 24px;
+    z-index: 1;
+    color: var(--color-gray-500);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    & .type {
+      margin-inline-end: 8px;
+      @include typo.title-medium-2;
+    }
+    & .title {
+      display: block;
+      @include typo.title-large-2;
+    }
+    & .issue-text {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 14px;
+      margin-bottom: 6px;
+      & p {
+        margin-bottom: 6px;
+        display: -webkit-box;
+        overflow: hidden;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        @include typo.body-medium-2;
+      }
+      & .issue-button {
+        width: 17px;
+        height: 31px;
+        margin-right: 24px;
+        background-color: transparent;
+        border: none;
+        flex-shrink: 0;
+      }
+    }
+    & .issue-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 8px;
+      & .side-tag {
+        @include typo.label-medium-1;
+      }
+    }
+
+    & .issue-footer {
+      display: flex;
+      justify-content: space-between;
+      & .issue-votes {
+        display: inline-flex;
+        gap: 8px;
+        & .vote-button {
+          height: 28px;
+          width: 46px;
+          background-color: var(--color-gray-40);
+          color: var(--color-gray-500);
+          border: none;
+          border-radius: 20px;
+          padding-inline: 8px;
+          padding-block: 4px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        & .selected {
+          background-color: var(--color-green-10);
+          border: 1px solid var(--color-green-60);
+        }
+        & .vote-count {
+          @include typo.label-medium-1;
+        }
+      }
+
+      & .issue-info {
+        display: flex;
+        width: 148px;
+        gap: 16px;
+        align-items: center;
+
+        justify-content: flex-end;
+        & .issue-comments {
+          display: flex;
+          align-items: center;
+          border: none;
+          gap: 4.5px;
+          background-color: transparent;
+          width: 33px;
+          & .comments-icon {
+            width: 13.5px;
+            height: 13.5px;
+          }
+          & .comments-count {
+            color: var(--color-gray-500);
+            text-align: center;
+            height: 20px;
+            @include typo.label-medium-1;
+          }
+        }
+        & .issue-date {
+          text-wrap: nowrap;
+          color: var(--color-gray-500);
+          @include typo.label-medium-1;
+        }
+        & .issue-state {
+          width: 20px;
+          height: 20px;
+        }
+      }
+    }
+  }
+  &[data-has-tail="true"]::before {
+    content: "";
+    background-image: url("../../../public/assets/icons/Issue/issue-tail.svg");
+    width: 52px;
+    height: 60px;
+    margin-top: 154px;
+    margin-right: -38px;
+  }
+}
+
+.owner-issue {
+  flex-direction: row;
+  & .issue-body {
+    border-radius: 24px 24px 24px 24px;
+    background-color: var(--color-green-10);
+    z-index: 1;
+  }
+
+  &[data-has-tail="true"]::before {
+    background-image: url("../../../public/assets/icons/Issue/issue-tail-user.svg");
+    height: 52px;
+    margin-top: 162.5px;
+    margin-right: 0;
+    margin-left: -38px;
+  }
+}
+
+[data-theme="dark"] {
+  .issue-container {
+    & .issue-body {
+      & .issue-footer {
+        & .issue-votes {
+          & .vote-button {
+            background-color: var(--color-gray-20);
+          }
+          & .selected {
+            background-color: var(--color-green-10);
+            border: none;
+            color: var(--color-text);
+          }
+        }
+      }
+    }
+    &[data-has-tail="true"]::before {
+      background-image: url("../../../public/assets/icons/Issue/issue-tail-dark.svg");
+    }
+  }
+}
+[data-theme="dark"] {
+  .owner-issue {
+    & .issue-body {
+      color: var(--color-text);
+    }
+    & .issue-footer {
+      color: var(--color-text);
+      & .issue-info {
+        & .issue-comments {
+          & .comments-count {
+            color: var(--color-text);
+          }
+        }
+        & .issue-date {
+          color: var(--color-text);
+        }
+      }
+    }
+    &[data-has-tail="true"]::before {
+      background-image: url("../../../public/assets/icons/Issue/issue-tail-user.svg");
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .issue-container {
+    & .issue-body {
+      & .issue-text {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-block: 6px;
+        & p {
+          display: -webkit-box;
+          overflow: hidden;
+          -webkit-box-orient: vertical;
+          -webkit-line-clamp: 2;
+          @include typo.body-medium-2;
+        }
+      }
+    }
+  }
+}
+

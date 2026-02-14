@@ -1,0 +1,42 @@
+@use "../../styles//typography.scss" as typo;
+
+.file-bg {
+  width: 84px;
+  height: 84px;
+  background-color: var(--color-green-10);
+  border-radius: 15px;
+  padding: 4px;
+  & .image {
+    width: 76px;
+    height: 76px;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+
+  & .video-container{
+    position: relative;
+    & .play-button{
+      position: absolute;
+      right: 50%;
+      top: 50%;
+      transform: translate(50%, -50%);
+      background-color: rgba(9, 30, 66, 0.5);
+      border-radius: 50%;
+    }
+  }
+  & .non-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 76px;
+    height: 76px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    background-color: var(--color-green-50);
+    border-radius: 15px;
+    opacity: 0.5;
+    color: var(--color-gray-00);
+    @include typo.headline-large-1;
+  }
+}

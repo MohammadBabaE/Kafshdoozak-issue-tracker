@@ -1,0 +1,123 @@
+@use "../../styles//typography.scss" as typo;
+
+.file-bg {
+  width: 100%;
+  height: 64px;
+  background-color: var(--color-green-10);
+  border-radius: 15px;
+  padding: 4px;
+  & .file-related {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    gap: 8px;
+
+    & .image {
+      width: 56px;
+      height: 56px;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+    & .non-image {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 56px;
+      height: 56px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      background-color: var(--color-green-50);
+      border-radius: 15px;
+      opacity: 0.5;
+      color: var(--color-gray-00);
+      @include typo.headline-large-1;
+    }
+    & .uploading {
+      position: absolute;
+      width: 56px;
+      height: 56px;
+      background-color: rgba(10, 202, 155, 0.2);
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      & .progress-circle {
+        border-radius: 50%;
+        border: 4px solid var(--color-green-50);
+        width: 36px;
+        height: 36px;
+        transform: rotate(-90deg);
+        background-color: var(--color-green-50);
+        & .circle-bg {
+          fill: none;
+          stroke: transparent;
+          stroke-width: 1;
+        }
+
+        & .circle {
+          fill: none;
+          stroke: var(--color-gray-00);
+          stroke-width: 2;
+          stroke-linecap: round;
+          transition: stroke-dasharray 0.3s;
+        }
+
+        & .cross {
+          stroke: var(--color-gray-00);
+          stroke-width: 1.5;
+          stroke-linecap: round;
+        }
+      }
+    }
+    & .file-text {
+      width: calc(100% - 80px);
+      & .file-name {
+        width: 100%;
+        @include typo.title-medium-2;
+        color: var(--color-gray-500);
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      & .file-progress {
+        color: var(--color-gray-200);
+        @include typo.title-small-2;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .file-bg {
+    display: flex;
+
+    height: 78px;
+    width: calc(50% - 16px);
+    & .file-related {
+      & .image {
+        width: 70px;
+        height: 70px;
+        border-radius: 12px;
+      }
+      & .non-image {
+        width: 70px;
+        height: 70px;
+        border-radius: 12px;
+        @include typo.headline-large-2;
+      }
+      & .uploading {
+        width: 70px;
+        height: 70px;
+        border-radius: 12px;
+      }
+      & .file-text {
+        width: calc(100% - 78px);
+        & .file-name {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

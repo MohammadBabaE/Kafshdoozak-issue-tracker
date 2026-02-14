@@ -1,0 +1,9 @@
+.home-button {
+  width: 16px; 
+  height: 16px;
+
+  @media (min-width: 800px) {
+    width: 24px; 
+    height: 24px;
+  }
+}

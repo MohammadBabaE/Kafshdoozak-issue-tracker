@@ -1,0 +1,146 @@
+@import "./variables.scss";
+
+// font presets
+@mixin display-large {
+  font-size: $font-size-display-large;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-display-large;
+}
+
+@mixin display-medium {
+  font-size: $font-size-display-medium;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-display-medium;
+}
+
+@mixin diplay-small {
+  font-size: $font-size-display-small;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-display-small;
+}
+
+@mixin headline-large-1 {
+  font-size: $font-size-headline-large;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-headline-large;
+}
+
+@mixin headline-large-2 {
+  font-size: $font-size-headline-large;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-headline-large;
+}
+
+@mixin headline-medium-1 {
+  font-size: $font-size-headline-medium;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-headline-medium;
+}
+
+@mixin headline-medium-2 {
+  font-size: $font-size-headline-medium;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-headline-medium;
+}
+
+@mixin headline-small-1 {
+  font-size: $font-size-headline-small;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-headline-small;
+}
+
+@mixin headline-small-2 {
+  font-size: $font-size-headline-small;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-headline-small;
+}
+
+@mixin title-large-1 {
+  font-size: $font-size-title-large-1;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-title-large-1;
+}
+
+@mixin title-large-2 {
+  font-size: $font-size-title-large-2;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-title-large-2;
+}
+
+@mixin title-medium-1 {
+  font-size: $font-size-title-medium-1;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-title-medium-1;
+}
+
+@mixin title-medium-2 {
+  font-size: $font-size-title-medium-2;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-title-medium-2;
+}
+
+@mixin title-small-1 {
+  font-size: $font-size-title-small-1;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-title-small-1;
+}
+
+@mixin title-small-2 {
+  font-size: $font-size-title-small-2;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-title-small-2;
+}
+
+@mixin body-large {
+  font-size: $font-size-body-large;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-body-large;
+}
+
+@mixin body-medium-1 {
+  font-size: $font-size-body-medium-1;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-body-medium-1;
+}
+
+@mixin body-medium-2 {
+  font-size: $font-size-body-medium-2;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-body-medium-2;
+}
+
+@mixin body-small {
+  font-size: $font-size-body-small;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-body-small;
+}
+
+@mixin label-medium-1 {
+  font-size: $font-size-label-medium-1;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-label-medium;
+}
+
+@mixin label-medium-2 {
+  font-size: $font-size-label-medium-2;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-label-medium;
+}
+
+@mixin label-medium-3 {
+  font-size: $font-size-label-medium-2;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-label-medium;
+}
+
+@mixin label-small-1 {
+  font-size: $font-size-label-small;
+  font-weight: $font-weight-medium;
+  line-height: $line-height-label-small;
+}
+
+@mixin label-small-2 {
+  font-size: $font-size-label-small;
+  font-weight: $font-weight-regular;
+  line-height: $line-height-label-small;
+}

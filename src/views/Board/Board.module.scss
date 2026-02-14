@@ -1,0 +1,307 @@
+@use "../../styles/typography.scss" as typo;
+@use "../../styles/utils.scss" as utils;
+
+.container-view {
+  & .header {
+    position: fixed;
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 60px;
+    border-bottom: 1px solid var(--color-gray-30);
+    padding-inline: 20px;
+    background-color: var(--color-gray-20);
+    & .home-button {
+      background-color: transparent;
+      border: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    & .header-icon {
+      margin: 0 auto;
+    }
+  }
+
+  & .main {
+    padding-top: 60px;
+    height: 100vh;
+
+    & .board-back-image {
+      height: 120px;
+      object-fit: cover;
+      width: 100%;
+    }
+    & .background {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+      width: 100%;
+      height: calc(100vh - 187px);
+
+      background-color: var(--color-gray-20);
+      & .content {
+        position: absolute;
+        overflow: hidden;
+        top: -30px;
+        width: 100%;
+
+        & .content-header {
+          height: 48px;
+          background-color: var(--color-gray-40);
+          border-radius: 12px 12px 0 0;
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          & .state-container {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            cursor: pointer;
+            & .issue-state {
+              width: 100%;
+              @include typo.body-medium-2;
+              color: var(--color-gray-200);
+            }
+            & .state-count {
+              position: absolute;
+              background-color: var(--color-blue-40);
+              color: var(--color-gray-00);
+              font-size: 8px;
+              font-weight: 400;
+              width: 16px;
+              height: 11px;
+              text-align: center;
+              border-radius: 20px;
+            }
+          }
+          & .selected {
+            & .issue-state {
+              color: var(--color-blue-60);
+            }
+            & .state-count {
+              background-color: var(--color-blue-60);
+            }
+
+            & .selected-underline {
+              position: absolute;
+              width: 5rem;
+              height: 3px;
+              background-color: var(--color-blue-60);
+              border-radius: 24px 24px 0 0;
+              bottom: -13px;
+              margin-inline: auto;
+            }
+          }
+          & .content-header-icon {
+            display: none;
+          }
+          & .bale-icon {
+            display: none;
+          }
+        }
+
+        & .content-navbar {
+          display: flex;
+          align-items: center;
+          width: 100%;
+          height: 48px;
+          border-bottom: 1px solid var(--color-gray-40);
+          background-color: var(--color-gray-20);
+          & .nav-status {
+            display: none;
+            justify-content: space-between;
+            width: 100%;
+            padding-inline: 16px;
+            align-items: center;
+            & .text-related {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+              & .line {
+                height: 25px;
+                width: 3px;
+                border-radius: 24px;
+              }
+              & .text {
+                display: flex;
+                flex-direction: column;
+
+                & .heading {
+                  display: none;
+                  @include typo.title-medium-2;
+                }
+                & .description {
+                  @include typo.label-small-2;
+                }
+              }
+            }
+            & .status-number {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              @include typo.label-small-2;
+              color: var(--color-gray-00);
+              width: 30px;
+              height: 20px;
+              border-radius: 20px;
+            }
+          }
+          & .selected {
+            display: flex;
+          }
+          & .pending {
+            & .text-related {
+              & .line {
+                background-color: var(--color-gray-300);
+              }
+              & .text {
+                & .heading {
+                  color: var(--color-gray-300);
+                }
+                & .description {
+                  color: var(--color-gray-200);
+                }
+              }
+            }
+            & .status-number {
+              background-color: var(--color-gray-300);
+            }
+          }
+          & .inprogress {
+            & .text-related {
+              & .line {
+                background-color: var(--color-blue-60);
+              }
+              & .text {
+                & .heading {
+                  color: var(--color-blue-60);
+                }
+                & .description {
+                  color: var(--color-blue-50);
+                }
+              }
+            }
+            & .status-number {
+              background-color: var(--color-blue-60);
+            }
+          }
+          & .done {
+            & .text-related {
+              & .line {
+                background-color: var(--color-green-60);
+              }
+              & .text {
+                & .heading {
+                  color: var(--color-green-60);
+                }
+                & .description {
+                  color: var(--color-green-50);
+                }
+              }
+            }
+            & .status-number {
+              background-color: var(--color-green-60);
+            }
+          }
+        }
+
+        & .issues-container {
+          height: calc(100vh - 253px);
+          & .issues-list {
+            display: none;
+            width: 100%;
+            flex-direction: column;
+            padding-inline: 16px;
+            padding-block: 12px;
+            gap: 12px;
+            overflow: scroll;
+            height: 100%;
+            background-color: var(--color-gray-30);
+            @include utils.scroll-hidden;
+          }
+          & .selected {
+            display: flex;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .container-view {
+    & .header {
+      background-color: transparent;
+      border-bottom: none;
+      & .header-icon {
+        display: none;
+      }
+    }
+    & .main {
+      padding-top: 0;
+      & .board-back-image {
+        height: 300px;
+      }
+      & .background {
+        margin-top: -7px;
+        height: calc(100vh - 50px);
+        & .content {
+          width: calc(100% - 140px);
+          top: -50px;
+          & .content-header {
+            justify-content: space-between;
+            padding-inline: 53px;
+            height: 100px;
+            & .state-container {
+              display: none;
+            }
+            & .content-header-icon {
+              display: block;
+            }
+            & .bale-icon {
+              display: block;
+            }
+          }
+          & .content-navbar {
+            height: 70px;
+            & .nav-status {
+              display: flex;
+              & .text-related {
+                & .line {
+                  height: 40px;
+                }
+                & .text {
+                  & .heading {
+                    display: block;
+                  }
+                }
+              }
+            }
+            & .pending,
+            .inprogress,
+            .done {
+              height: 70px;
+              border: 1px solid var(--color-gray-40);
+            }
+          }
+          & .issues-container {
+            height: 100%;
+            display: flex;
+            & .issues-list {
+              display: flex;
+              height: calc(100vh - 170px);
+              border: 1px solid var(--color-gray-40);
+              border-top: none;
+              overflow: scroll;
+              @include utils.scroll-hidden;
+            }
+          }
+        }
+      }
+    }
+  }
+}

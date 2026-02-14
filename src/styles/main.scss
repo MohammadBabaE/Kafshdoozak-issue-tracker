@@ -1,0 +1,18 @@
+@import "./colors.scss";
+@import "./typography.scss";
+@import "../../node_modules/shabnam-font/dist/font-face.css";
+
+html {
+  height: 100vh;
+  width: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Shabnam;
+  &:focus {
+    outline: none;
+  }
+}

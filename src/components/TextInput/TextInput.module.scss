@@ -1,0 +1,67 @@
+@use "../../styles/typography.scss" as typography;
+@use "../../styles/utils.scss" as utils;
+
+.container {
+  position: relative;
+  width: 100%;
+  margin-block-start: 9px;
+}
+
+.title {
+  position: absolute;
+  top: -9px;
+  inset-inline-start: 24px;
+  color: var(--color-gray-300);
+  background-color: var(--color-gray-00);
+  padding-inline: 8px;
+}
+
+.input {
+  width: 100%;
+  max-height: 54px;
+  border: 1px solid var(--color-gray-50);
+  border-radius: 14px;
+  color: var(--color-gray-300);
+  padding-inline: 24px;
+  padding-block: 16px;
+  background-color: var(--color-gray-00);
+}
+
+.large {
+  & .input {
+    max-height: 80px;
+    resize: none;
+    @include utils.scroll-hidden;
+  }
+}
+
+.input:focus-visible {
+  border: 2px solid var(--color-blue-50);
+}
+
+.input.error {
+  border: 2px solid var(--color-red-50);
+}
+
+.input.success {
+  border: 2px solid var(--color-green-50);
+}
+
+.stateContainer {
+  display: flex;
+  align-items: center;
+}
+
+.errorText,
+.successText {
+  margin-inline-start: 4px;
+  @include typography.body-small;
+}
+
+.errorText {
+  color: var(--color-red-50);
+}
+
+.successText {
+  color: var(--color-green-50);
+}

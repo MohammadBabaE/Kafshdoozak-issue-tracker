@@ -1,0 +1,231 @@
+@use "../../styles/typography.scss" as typo;
+@use "../../styles/utils.scss" as utils;
+
+.overlay {
+  z-index: 4;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(66, 82, 110, 0.7);
+  position: fixed;
+  top: 0;
+
+  & .content {
+    width: 100%;
+    height: 100%;
+    background-color: var(--color-gray-00);
+
+    & .header {
+      position: fixed;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      height: 60px;
+      border-bottom: 1px solid var(--color-gray-30);
+      padding-inline: 20px;
+      background-color: var(--color-gray-20);
+      & .close-button {
+        background-color: transparent;
+        border: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      & .header-icon {
+        margin: 0 auto;
+      }
+    }
+
+    & .main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding-top: 76px;
+      width: 100%;
+      height: 100%;
+      padding-inline: 12px;
+      padding-bottom: 76px;
+      overflow: scroll;
+      @include utils.scroll-hidden;
+      & .issue-type-container {
+        display: flex;
+        flex-direction: column;
+        & .types-label {
+          display: flex;
+          align-items: center;
+        }
+        & .types {
+          display: flex;
+          gap: 10px;
+          justify-content: center;
+          & .type-button {
+            background-color: transparent;
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            padding-inline-start: 16px;
+            width: 7rem;
+            height: 54px;
+            border: 1px solid var(--color-gray-50);
+            border-radius: 14px;
+          }
+          & .selected {
+            border: 2px solid var(--color-blue-50);
+          }
+        }
+      }
+
+      & .issue-labels {
+        width: 100%;
+        border: 1px solid var(--color-gray-40);
+        display: flex;
+        flex-wrap: wrap;
+        padding: 18px 11px 12px;
+        gap: 12px;
+        border-radius: 16px;
+        position: relative;
+        & .labels-title {
+          position: absolute;
+          top: -9px;
+          inset-inline-start: 24px;
+          color: var(--color-gray-300);
+          background-color: var(--color-gray-00);
+          padding-inline: 8px;
+        }
+        & .issue-label {
+          @include typo.body-medium-2;
+        }
+        & .selected {
+          color: var(--color-blue-50);
+        }
+      }
+
+      & .file-selection {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--color-gray-20);
+        border-radius: 16px;
+        border: 2px solid var(--color-gray-40);
+        width: 100%;
+        height: 66px;
+        gap: 8px;
+        flex-shrink: 0;
+
+        & .file-input {
+          display: none;
+        }
+        & .selection-text-mobile {
+          @include typo.title-medium-2;
+          color: var(--color-gray-300);
+        }
+        & .selection-text-desktop {
+          display: none;
+        }
+      }
+
+      & .file-view {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 16px; 
+        width: 100%;
+      }
+    }
+
+    & .footer {
+      position: fixed;
+      display: flex;
+      z-index: 10;
+      width: 100%;
+      height: 60px;
+      bottom: 0;
+      & .submit-button {
+        width: 100%;
+        height: 60px;
+        background-color: var(--color-blue-40);
+        color: var(--color-gray-10);
+        @include typo.title-large-2;
+        border: none;
+      }
+      & .back-button {
+        display: none;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+  .overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    & .content {
+      width: 52%;
+      height: 90%;
+      border-radius: 14px;
+      & .header {
+        position: static;
+        background-color: transparent;
+      }
+
+      & .main {
+        padding-top: 16px;
+        padding-bottom: 16px;
+        padding-inline: 32px;
+        height: calc(100% - 120px);
+
+        & .issue-type-container {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          width: 100%;
+        }
+        & .file-selection {
+          height: 120px;
+          flex-direction: column;
+          padding-inline: 16px;
+          & .selection-text-mobile {
+            display: none;
+          }
+          & .selection-text-desktop {
+            display: block;
+            color: var(--color-gray-300);
+
+            @include typo.title-medium-2;
+          }
+        }
+      }
+
+      & .footer {
+        position: static;
+        display: flex;
+        width: 100%;
+        height: 60px;
+        bottom: unset;
+        margin-top: auto;
+        justify-content: space-around;
+        align-items: center;
+        border-top: 1px solid var(--color-gray-30);
+        & .submit-button {
+          width: 160px;
+
+          height: 40px;
+          background-color: var(--color-blue-50);
+          color: var(--color-gray-00);
+          @include typo.title-medium-2;
+          border-radius: 10px;
+        }
+        & .back-button {
+          background-color: transparent;
+          color: var(--color-blue-50);
+
+          display: block;
+          @include typo.title-medium-2;
+          border: none;
+        }
+      }
+    }
+  }
+}
